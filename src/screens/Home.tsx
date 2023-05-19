@@ -40,14 +40,13 @@ export const Home = ({navigation}: RootStackScreenProps<"Home">) => {
   }
 
   return (
-    <View my={4} position={"relative"}>
+    <View flex={1} my={4} position={"relative"}>
       <FlatList
         data={data}
         renderItem={({item}) => <ListItem item={item} modalTrigger={openClientDetail} />}
       ></FlatList>
       <Fab
         position="absolute"
-        bottom={10}
         bgColor={"primary.500"}
         renderInPortal={false}
         onPress={() => {

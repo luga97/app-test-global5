@@ -1,15 +1,21 @@
-import {StackScreenProps, createStackNavigator} from "@react-navigation/stack"
+import {
+  StackNavigationProp,
+  StackScreenProps,
+  createStackNavigator,
+} from "@react-navigation/stack"
 import {CreateClientForm} from "../screens/CreateClient/CreateClientForm"
 
-export type CreateClientStackParamList = {
+type ParamList = {
   CreateClientForm: undefined
 }
-export type CreateClientStackScreenProps<
-  screen extends keyof CreateClientStackParamList
-> = StackScreenProps<CreateClientStackParamList, screen>
+export type CreateClientStackScreenProps<screen extends keyof ParamList> =
+  StackScreenProps<ParamList, screen>
+
+export type CreateClientStackNavigationProps<screen extends keyof ParamList> =
+  StackNavigationProp<ParamList, screen>
 
 export function CreateClientStack() {
-  const Stack = createStackNavigator<CreateClientStackParamList>()
+  const Stack = createStackNavigator<ParamList>()
   return (
     <Stack.Navigator
       screenOptions={{
